@@ -14,8 +14,6 @@
             margin: 0;
             padding: 20px;
         }
-
-        /* Container Principal */
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -25,8 +23,6 @@
             padding: 20px 40px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
-
-        /* Títulos */
         h1, h2, h3 {
             border-bottom: 1px solid #eaecef;
             padding-bottom: 0.3em;
@@ -34,26 +30,21 @@
             margin-bottom: 16px;
             font-weight: 600;
         }
-
         h1 { font-size: 2em; }
         h2 { font-size: 1.5em; }
         h3 { font-size: 1.25em; }
-
         /* Parágrafos e Listas */
         p {
             margin-top: 0;
             margin-bottom: 16px;
         }
-
         ul, ol {
             padding-left: 2em;
             margin-bottom: 16px;
         }
-
         li {
             margin-bottom: 0.5em;
         }
-
         /* Código */
         code {
             font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
@@ -63,7 +54,6 @@
             margin: 0;
             border-radius: 3px;
         }
-
         pre {
             background-color: #f6f8fa;
             padding: 16px;
@@ -71,24 +61,20 @@
             border-radius: 3px;
             border: 1px solid #d1d5da;
         }
-
         pre code {
             background-color: transparent;
             padding: 0;
             margin: 0;
             border: none;
         }
-
         /* Links */
         a {
             color: #0366d6;
             text-decoration: none;
         }
-
         a:hover {
             text-decoration: underline;
         }
-
         /* Destaques e Avisos */
         .highlight {
             background-color: #fffbdd;
@@ -99,7 +85,6 @@
     </style>
 </head>
 <body>
-
     <div class="container">
         <h1>🚀 Gerenciador de Senhas Desktop</h1>
         <p>
@@ -108,7 +93,6 @@
         <p>
             A persistência de dados é feita através do JPA/Hibernate, conectado a um banco de dados PostgreSQL.
         </p>
-
         <h2>✨ Funcionalidades</h2>
         <ul>
             <li><strong>CRUD Completo:</strong> Gerenciamento total (Criar, Ler, Atualizar, Excluir) para Usuários, Categorias e Itens de Credenciais.</li>
@@ -116,7 +100,6 @@
             <li><strong>Relacionamentos:</strong> Associação flexível de credenciais a múltiplas categorias.</li>
             <li><strong>Relatórios:</strong> Geração de 3 relatórios de dados para análise.</li>
         </ul>
-
         <h2>💻 Tecnologias Utilizadas</h2>
         <ul>
             <li><strong>Linguagem:</strong> Java 17+</li>
@@ -126,12 +109,9 @@
             <li><strong>Gerenciador de Dependências:</strong> Apache Maven</li>
             <li><strong>IDE Recomendada:</strong> IntelliJ IDEA</li>
         </ul>
-
         <hr>
-
         <h2>🔧 Tutorial de Instalação e Configuração</h2>
         <p>Siga os passos abaixo para executar o projeto em uma nova máquina.</p>
-
         <h3>1. Pré-requisitos</h3>
         <p>Antes de começar, garanta que você tenha os seguintes softwares instalados:</p>
         <ol>
@@ -140,7 +120,6 @@
             <li><strong>PostgreSQL:</strong> O banco de dados onde as informações serão salvas. <a href="https://www.postgresql.org/download/" target="_blank">Download PostgreSQL</a>.</li>
             <li><strong>Git:</strong> Para clonar o repositório (opcional, mas recomendado).</li>
         </ol>
-
         <h3>2. Passos para Instalação</h3>
         <ol>
             <li>
@@ -158,7 +137,6 @@ cd gerenciadorSenhas</code></pre>
                 Vá em <code>File &gt; Open...</code> e selecione a pasta do projeto. O IntelliJ irá baixar as dependências do Maven automaticamente.
             </li>
         </ol>
-
         <h2>⚙️ O Que Precisa Ser Alterado para Utilizar em Outro PC</h2>
         <div class="highlight">
             <p><strong>Atenção:</strong> Esta é a parte mais importante da configuração. Para que o programa se conecte ao seu banco de dados local, você <strong>obrigatoriamente</strong> precisa editar o seguinte arquivo.</p>
@@ -168,22 +146,16 @@ cd gerenciadorSenhas</code></pre>
         </p>
         <pre><code>&lt;properties&gt;
     &lt;!-- ... --&gt;
-
     &lt;!-- 1. ALTERE AQUI o nome do seu banco de dados --&gt;
     &lt;property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/gerenciador_senhas_db" /&gt;
-
     &lt;!-- 2. ALTERE AQUI para o seu usuário do PostgreSQL --&gt;
     &lt;property name="jakarta.persistence.jdbc.user" value="postgres" /&gt;
-
     &lt;!-- 3. ALTERE AQUI para a sua senha do PostgreSQL --&gt;
     &lt;property name="jakarta.persistence.jdbc.password" value="sua_senha_secreta" /&gt;
-
     &lt;!-- ... --&gt;
-    
     &lt;!-- Esta linha cria e apaga as tabelas a cada execução, ideal para testes --&gt;
     &lt;property name="hibernate.hbm2ddl.auto" value="create-drop" /&gt;
 &lt;/properties&gt;</code></pre>
-
         <h2>✅ Executando a Aplicação</h2>
         <p>Depois de configurar o <code>persistence.xml</code>, a aplicação está pronta para rodar.</p>
         <ol>
