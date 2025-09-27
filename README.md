@@ -45,7 +45,7 @@
             <li>
                 <strong>Clone o Repositório</strong><br>
                 Abra um terminal e clone o projeto para a sua máquina.
-                <pre><code>git clone &lt;URL_DO_SEU_REPOSITORIO_GIT&gt;
+                <pre><code>git clone https://github.com/Merle-py/gerenciadorSenhas.git;
 cd gerenciadorSenhas</code></pre>
             </li>
             <li>
