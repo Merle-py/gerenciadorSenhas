@@ -3,7 +3,6 @@ package br.com.gerenciadorSenhas.service;
 import br.com.gerenciadorSenhas.model.ItemCredencial;
 import br.com.gerenciadorSenhas.util.JPAUtil;
 import jakarta.persistence.EntityManager;
-
 import java.util.Collections;
 import java.util.List;
 

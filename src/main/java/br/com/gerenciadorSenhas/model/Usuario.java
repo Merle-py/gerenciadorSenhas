@@ -43,68 +43,23 @@ public class Usuario {
     }
 
     // --- Getters e Setters ---
-    public Integer getId_usuario() {
-        return id_usuario;
-    }
-
-    public void setId_usuario(Integer id_usuario) {
-        this.id_usuario = id_usuario;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getSenhaMestraHash() {
-        return senhaMestraHash;
-    }
-
-    public void setSenhaMestraHash(String senhaMestraHash) {
-        this.senhaMestraHash = senhaMestraHash;
-    }
-
-    public String getSalt() {
-        return salt;
-    }
-
-    public void setSalt(String salt) {
-        this.salt = salt;
-    }
-
-    public LocalDate getDataCadastro() {
-        return dataCadastro;
-    }
-
-    public void setDataCadastro(LocalDate dataCadastro) {
-        this.dataCadastro = dataCadastro;
-    }
-
-    public List<ItemCredencial> getItens() {
-        return itens;
-    }
-
-    public void setItens(List<ItemCredencial> itens) {
-        this.itens = itens;
-    }
+    public Integer getId_usuario() { return id_usuario; }
+    public void setId_usuario(Integer id_usuario) { this.id_usuario = id_usuario; }
+    public String getNome() { return nome; }
+    public void setNome(String nome) { this.nome = nome; }
+    public String getLogin() { return login; }
+    public void setLogin(String login) { this.login = login; }
+    public String getSenhaMestraHash() { return senhaMestraHash; }
+    public void setSenhaMestraHash(String senhaMestraHash) { this.senhaMestraHash = senhaMestraHash; }
+    public String getSalt() { return salt; }
+    public void setSalt(String salt) { this.salt = salt; }
+    public LocalDate getDataCadastro() { return dataCadastro; }
+    public void setDataCadastro(LocalDate dataCadastro) { this.dataCadastro = dataCadastro; }
+    public List<ItemCredencial> getItens() { return itens; }
+    public void setItens(List<ItemCredencial> itens) { this.itens = itens; }
 
     @Override
     public String toString() {
-        return "Usuario{" +
-                "id_usuario=" + id_usuario +
-                ", nome='" + nome + '\'' +
-                ", login='" + login + '\'' +
-                '}';
+        return "Usuario{" + "id_usuario=" + id_usuario + ", nome='" + nome + '\'' + ", login='" + login + '\'' + '}';
     }
 }

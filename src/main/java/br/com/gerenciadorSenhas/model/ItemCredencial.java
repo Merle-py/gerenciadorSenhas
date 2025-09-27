@@ -35,7 +35,7 @@ public class ItemCredencial {
     @JoinColumn(name = "id_usuario", nullable = false)
     private Usuario usuario;
 
-    @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY)
     @JoinTable(
             name = "CRED_CATEGORIA",
             joinColumns = @JoinColumn(name = "id_item"),
@@ -55,85 +55,27 @@ public class ItemCredencial {
     }
 
     // --- Getters e Setters ---
-    public Integer getId_item() {
-        return id_item;
-    }
-
-    public void setId_item(Integer id_item) {
-        this.id_item = id_item;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getLoginServico() {
-        return loginServico;
-    }
-
-    public void setLoginServico(String loginServico) {
-        this.loginServico = loginServico;
-    }
-
-    public String getSenhaCriptografada() {
-        return senhaCriptografada;
-    }
-
-    public void setSenhaCriptografada(String senhaCriptografada) {
-        this.senhaCriptografada = senhaCriptografada;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public LocalDateTime getDataUltimaModificacao() {
-        return dataUltimaModificacao;
-    }
-
-    public void setDataUltimaModificacao(LocalDateTime dataUltimaModificacao) {
-        this.dataUltimaModificacao = dataUltimaModificacao;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    public Set<Categoria> getCategorias() {
-        return categorias;
-    }
-
-    public void setCategorias(Set<Categoria> categorias) {
-        this.categorias = categorias;
-    }
+    public Integer getId_item() { return id_item; }
+    public void setId_item(Integer id_item) { this.id_item = id_item; }
+    public String getTipo() { return tipo; }
+    public void setTipo(String tipo) { this.tipo = tipo; }
+    public String getTitulo() { return titulo; }
+    public void setTitulo(String titulo) { this.titulo = titulo; }
+    public String getLoginServico() { return loginServico; }
+    public void setLoginServico(String loginServico) { this.loginServico = loginServico; }
+    public String getSenhaCriptografada() { return senhaCriptografada; }
+    public void setSenhaCriptografada(String senhaCriptografada) { this.senhaCriptografada = senhaCriptografada; }
+    public String getUrl() { return url; }
+    public void setUrl(String url) { this.url = url; }
+    public LocalDateTime getDataUltimaModificacao() { return dataUltimaModificacao; }
+    public void setDataUltimaModificacao(LocalDateTime dataUltimaModificacao) { this.dataUltimaModificacao = dataUltimaModificacao; }
+    public Usuario getUsuario() { return usuario; }
+    public void setUsuario(Usuario usuario) { this.usuario = usuario; }
+    public Set<Categoria> getCategorias() { return categorias; }
+    public void setCategorias(Set<Categoria> categorias) { this.categorias = categorias; }
 
     @Override
     public String toString() {
-        return "ItemCredencial{" +
-                "id_item=" + id_item +
-                ", tipo='" + tipo + '\'' +
-                ", titulo='" + titulo + '\'' +
-                ", usuario=" + (usuario != null ? usuario.getLogin() : "null") +
-                '}';
+        return "ItemCredencial{" + "id_item=" + id_item + ", tipo='" + tipo + '\'' + ", titulo='" + titulo + '\'' + ", usuario=" + (usuario != null ? usuario.getLogin() : "null") + '}';
     }
 }

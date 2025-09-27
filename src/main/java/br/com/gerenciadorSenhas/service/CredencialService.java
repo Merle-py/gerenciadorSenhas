@@ -4,6 +4,8 @@ import br.com.gerenciadorSenhas.dao.CategoriaDAO;
 import br.com.gerenciadorSenhas.dao.ItemCredencialDAO;
 import br.com.gerenciadorSenhas.model.Categoria;
 import br.com.gerenciadorSenhas.model.ItemCredencial;
+import br.com.gerenciadorSenhas.util.JPAUtil;
+import jakarta.persistence.EntityManager;
 
 public class CredencialService {
 
@@ -11,37 +13,29 @@ public class CredencialService {
     private final CategoriaDAO categoriaDAO = new CategoriaDAO();
 
     public void associarCredencialACategoria(Integer idItem, Integer idCategoria) {
-        ItemCredencial item = itemCredencialDAO.buscarPorId(idItem);
-        Categoria categoria = categoriaDAO.buscarPorId(idCategoria);
+        EntityManager em = JPAUtil.getEntityManager();
+        try {
+            em.getTransaction().begin();
 
-        if (item != null && categoria != null) {
-            item.getCategorias().add(categoria);
-            itemCredencialDAO.atualizar(item);
-            System.out.println("SUCESSO: Credencial '" + item.getTitulo() + "' associada à categoria '" + categoria.getNomeCategoria() + "'.");
-        } else {
-            System.out.println("ERRO: Item ou Categoria não encontrados para associação.");
-        }
-    }
+            ItemCredencial item = itemCredencialDAO.buscarPorId(idItem, em);
+            Categoria categoria = categoriaDAO.buscarPorId(idCategoria, em);
 
-    public void desassociarCredencialDeCategoria(Integer idItem, Integer idCategoria) {
-        ItemCredencial item = itemCredencialDAO.buscarPorId(idItem);
-
-        if (item != null) {
-            // A busca pela categoria é feita para garantir que o objeto Categoria a ser removido seja o correto
-            Categoria categoriaParaRemover = item.getCategorias().stream()
-                    .filter(c -> c.getId_categoria().equals(idCategoria))
-                    .findFirst()
-                    .orElse(null);
-
-            if (categoriaParaRemover != null) {
-                item.getCategorias().remove(categoriaParaRemover);
-                itemCredencialDAO.atualizar(item);
-                System.out.println("SUCESSO: Credencial '" + item.getTitulo() + "' desassociada da categoria '" + categoriaParaRemover.getNomeCategoria() + "'.");
+            if (item != null && categoria != null) {
+                item.getCategorias().add(categoria);
+                itemCredencialDAO.atualizar(item, em);
+                System.out.println("SUCESSO: Credencial '" + item.getTitulo() + "' associada à categoria '" + categoria.getNomeCategoria() + "'.");
             } else {
-                System.out.println("ERRO: A credencial não estava associada a esta categoria.");
+                System.out.println("ERRO: Item ou Categoria não encontrados para associação.");
             }
-        } else {
-            System.out.println("ERRO: Item não encontrado para desassociação.");
+
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            em.close();
         }
     }
 }

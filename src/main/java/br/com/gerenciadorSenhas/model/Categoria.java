@@ -27,35 +27,15 @@ public class Categoria {
     }
 
     // --- Getters e Setters ---
-    public Integer getId_categoria() {
-        return id_categoria;
-    }
-
-    public void setId_categoria(Integer id_categoria) {
-        this.id_categoria = id_categoria;
-    }
-
-    public String getNomeCategoria() {
-        return nomeCategoria;
-    }
-
-    public void setNomeCategoria(String nomeCategoria) {
-        this.nomeCategoria = nomeCategoria;
-    }
-
-    public Set<ItemCredencial> getItens() {
-        return itens;
-    }
-
-    public void setItens(Set<ItemCredencial> itens) {
-        this.itens = itens;
-    }
+    public Integer getId_categoria() { return id_categoria; }
+    public void setId_categoria(Integer id_categoria) { this.id_categoria = id_categoria; }
+    public String getNomeCategoria() { return nomeCategoria; }
+    public void setNomeCategoria(String nomeCategoria) { this.nomeCategoria = nomeCategoria; }
+    public Set<ItemCredencial> getItens() { return itens; }
+    public void setItens(Set<ItemCredencial> itens) { this.itens = itens; }
 
     @Override
     public String toString() {
-        return "Categoria{" +
-                "id_categoria=" + id_categoria +
-                ", nomeCategoria='" + nomeCategoria + '\'' +
-                '}';
+        return "Categoria{" + "id_categoria=" + id_categoria + ", nomeCategoria='" + nomeCategoria + '\'' + '}';
     }
 }
